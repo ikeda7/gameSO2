@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sobreviventes do Bunker</title>
+
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="Jogo de sobrevivência pós-apocalíptica onde você precisa escolher o sobrevivente certo para cada desafio." />
+    <meta property="og:title" content="Sobreviventes do Bunker" />
+    <meta property="og:description" content="Teste suas habilidades de sobrevivência neste jogo pós-apocalíptico!" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+
+    <!-- Link para a fonte "Special Elite" -->
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+    
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    
+    <!-- Preload da imagem de fundo para carregamento mais rápido -->
+    <link rel="preload" href="../img/background.png" as="image" />
+  </head>
+  <body>
+    <!-- Efeito de ruído de fundo -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Container principal -->
+    <div class="main-container">
+      <div class="titulo">
+        <h1>SOBREVIVENTES DO BUNKER</h1>
+      </div>
+      
+      <div class="buttons">
+        <button id="btn-iniciar">
+          <span class="btn-icon">▶</span>
+          Iniciar
+        </button>
+        <button id="btn-como-jogar">
+          <span class="btn-icon">?</span>
+          Como jogar
+        </button>
+      </div>
+    </div>
+
+    <!-- Modal de instruções -->
+    <div class="instrucoes" id="instrucoes">
+      <div class="instrucoes-content">
+        <h2>Como Jogar</h2>
+        <p>Bem-vindo ao <strong>Sobreviventes do Bunker</strong>! Este é um jogo de perguntas e respostas onde você deve usar sua habilidade para escolher a pessoa certa para resolver problemas dentro de um bunker pós-apocalíptico.</p>
+      
+        <p>O jogo consiste em situações em que você precisará escolher, entre 5 personagens, aquele que você acredita ser o mais apto para resolver um problema específico. Cada personagem tem uma especialização, e você deve usar seu conhecimento para escolher a melhor opção.</p>
+      
+        <p>Após escolher o personagem correto, o problema será apresentado com suas respectivas opções de soluções. Sua tarefa é selecionar a solução correta para resolver o problema e avançar no jogo.</p>
+      
+        <p>Escolha sabiamente e <strong>sobreviva!</strong></p>
+        
+        <button id="fechar-instrucoes">Fechar</button>
+      </div>
+    </div>
+
+    <!-- Áudio de fundo (opcional) -->
+    <audio id="background-audio" loop>
+      <source src="../audio/ambient-background.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Link para o script JS -->
+    <script src="../javascript/script.js"></script>
+  </body>
+</html>

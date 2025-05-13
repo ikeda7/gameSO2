@@ -1,0 +1,472 @@
+/* Configurações Gerais do Corpo */
+body {
+    font-family: 'Special Elite', sans-serif;
+    margin: 0;
+    padding: 0;
+    height: 100vh;
+    width: 100vw;
+    background-image: url('../img/background.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    color: white;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Adiciona um overlay com textura de poeira/sujeira */
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('https://www.transparenttextures.com/patterns/dirt.png');
+    opacity: 0.15;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Estilo do Container Principal */
+.main-container {
+    position: relative;
+    text-align: center;
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* Estilo do Título com efeito de texto deteriorado */
+.titulo {
+    text-align: center;
+    margin: 0;
+    padding: 30px 50px;
+    background-color: rgba(0, 0, 0, 0.75);
+    border: 4px solid #ffcc00;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(255, 204, 0, 0.3);
+    position: relative;
+    backdrop-filter: blur(3px);
+    transform: perspective(500px) rotateX(5deg);
+}
+
+.titulo h1 {
+    font-size: 5.5rem;
+    color: #ffcc00;
+    text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.8), 0 0 30px rgba(255, 204, 0, 0.5);
+    text-transform: uppercase;
+    letter-spacing: 5px;
+    font-weight: 900 !important;
+    -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+    position: relative;
+    margin: 0;
+    padding: 0;
+}
+
+/* Efeito de deterioração no título */
+.titulo h1::after {
+    content: 'SOBREVIVENTES DO BUNKER';
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: rgba(255, 204, 0, 0.9);
+    text-shadow: none;
+    -webkit-text-stroke: 0;
+    clip-path: polygon(
+        0% 10%, 5% 0%, 15% 15%, 20% 5%, 25% 10%, 35% 0%, 40% 15%, 
+        50% 5%, 60% 0%, 65% 15%, 70% 5%, 80% 10%, 85% 0%, 95% 15%, 100% 5%,
+        100% 100%, 0% 100%
+    );
+}
+
+/* Estilo da Div dos Botões */
+.buttons {
+    margin-top: 40px;
+    display: flex;
+    gap: 25px;
+    justify-content: center;
+}
+
+/* Estilo dos Botões */
+button {
+    font-family: 'Special Elite', sans-serif;
+    font-size: 1.6rem;
+    padding: 20px 30px;
+    background-color: #333;
+    color: #ffcc00;
+    border: 3px solid #ffcc00;
+    border-radius: 8px;
+    text-transform: uppercase;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5), inset 0 1px 3px rgba(255, 255, 255, 0.3);
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    position: relative;
+    overflow: hidden;
+    letter-spacing: 2px;
+}
+
+/* Efeito de destaque nos botões */
+button::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        to bottom right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0) 40%,
+        rgba(255, 255, 255, 0.4) 50%,
+        rgba(255, 255, 255, 0) 60%,
+        rgba(255, 255, 255, 0) 100%
+    );
+    transform: rotate(45deg);
+    transition: all 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+    pointer-events: none;
+    z-index: 1;
+}
+
+/* Estilo do botão quando o mouse passa sobre */
+button:hover {
+    background-color: #444;
+    border-color: #ffdd44;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 204, 0, 0.5);
+    transform: translateY(-3px);
+    color: #ffdd44;
+}
+
+button:hover::before {
+    left: 100%;
+    top: 100%;
+}
+
+/* Estilo do botão quando pressionado */
+button:active {
+    background-color: #222;
+    border-color: #cc9900;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.4);
+    transform: translateY(2px);
+    transition: all 0.1s;
+}
+
+/* Instruções Modal */
+.instrucoes {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.85);
+    justify-content: center;
+    align-items: center;
+    z-index: 100;
+    animation: fadeIn 0.3s ease-out;
+    backdrop-filter: blur(5px);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+.instrucoes-content {
+    background-color: #222;
+    color: #ddd;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+    width: 80%;
+    max-width: 600px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5), 0 0 0 3px rgba(255, 204, 0, 0.3);
+    position: relative;
+    line-height: 1.6;
+    border: 2px solid #ffcc00;
+}
+
+.instrucoes-content::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('https://www.transparenttextures.com/patterns/graphy-dark.png');
+    opacity: 0.1;
+    border-radius: 10px;
+    pointer-events: none;
+}
+
+.instrucoes-content h2 {
+    margin-top: 0;
+    color: #ffcc00;
+    text-align: center;
+    font-size: 2.5rem;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    margin-bottom: 20px;
+    border-bottom: 2px solid rgba(255, 204, 0, 0.3);
+    padding-bottom: 10px;
+}
+
+.instrucoes-content p {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+}
+
+.instrucoes-content strong {
+    color: #ffcc00;
+    font-weight: bold;
+}
+
+.instrucoes-content button {
+    margin-top: 30px;
+    padding: 12px 25px;
+    background-color: #333;
+    font-size: 1.2rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 150px;
+}
+
+/* Decoração de canto para a caixa de instruções */
+.instrucoes-content::after {
+    content: '⚠';
+    position: absolute;
+    top: -15px;
+    left: -15px;
+    background-color: #ffcc00;
+    color: #111;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    font-weight: bold;
+    box-shadow: 0 3px 6px rgba(0, 0, 0, 0.3);
+    border: 2px solid #111;
+}
+
+/* Animações */
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+/* Aplicando animação ao título */
+.titulo {
+    animation: pulse 3s infinite ease-in-out;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 768px) {
+    .titulo h1 {
+        font-size: 3rem;
+    }
+    
+    .buttons {
+        flex-direction: column;
+        gap: 15px;
+    }
+    
+    button {
+        font-size: 1.3rem;
+        padding: 15px 25px;
+    }
+    
+    .instrucoes-content {
+        width: 90%;
+        padding: 20px;
+    }
+    
+    .instrucoes-content h2 {
+        font-size: 2rem;
+    }
+}
+
+/* Estilos adicionais para os efeitos visuais */
+
+/* Overlay de ruído para dar textura à página */
+.noise-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('data:image/png;base64,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');
+    opacity: 0.03;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* Partículas de poeira */
+.dust-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.dust-particle {
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.8);
+    border-radius: 50%;
+    animation: float linear infinite;
+    pointer-events: none;
+}
+
+@keyframes float {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20vh) translateX(10vw) rotate(90deg);
+    }
+    50% {
+        transform: translateY(-30vh) translateX(-5vw) rotate(180deg);
+    }
+    75% {
+        transform: translateY(-10vh) translateX(15vw) rotate(270deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(360deg);
+    }
+}
+
+/* Ícones dentro dos botões */
+.btn-icon {
+    margin-right: 8px;
+    font-size: 0.9em;
+}
+
+/* Animação para a instrucoes-content */
+.instrucoes-content {
+    transform: scale(0.9);
+    opacity: 0;
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.instrucoes-content.active {
+    transform: scale(1);
+    opacity: 1;
+}
+
+/* Animações de transição de página */
+body {
+    transition: opacity 0.8s ease;
+}
+
+body.fade-out {
+    opacity: 0;
+}
+
+body.loaded .titulo {
+    animation: pulseIn 1s ease-out forwards, pulse 3s 1s infinite ease-in-out;
+    opacity: 0;
+}
+
+@keyframes pulseIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.9) perspective(500px) rotateX(5deg);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1) perspective(500px) rotateX(5deg);
+    }
+}
+
+/* Efeito de scanline (linhas horizontais tipo TV antiga) para tema pós-apocalíptico */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(transparent 50%, rgba(0, 0, 0, 0.05) 50%);
+    background-size: 100% 4px;
+    z-index: 999;
+    pointer-events: none;
+    opacity: 0.3;
+    animation: scanline 0.5s linear infinite;
+}
+
+@keyframes scanline {
+    0% {
+        background-position: 0 0;
+    }
+    100% {
+        background-position: 0 4px;
+    }
+}
+
+/* Efeito de vinheta para dar aspecto de que a luz está concentrada no centro */
+.main-container::before {
+    content: '';
+    position: absolute;
+    top: -50vh;
+    left: -50vw;
+    width: 200vw;
+    height: 200vh;
+    background: radial-gradient(
+        circle at center,
+        transparent 30%,
+        rgba(0, 0, 0, 0.6) 100%
+    );
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* Efeito de aberrações cromáticas nas bordas (tipo filme antigo ou TV quebrada) */
+.titulo::before {
+    content: 'SOBREVIVENTES DO BUNKER';
+    position: absolute;
+    top: 25px;
+    left: 48px;
+    font-size: 6rem;
+    color: rgba(255, 0, 0, 0.5); /* Vermelho */
+    z-index: -1;
+}
+
+.titulo::after {
+    content: 'SOBREVIVENTES DO BUNKER';
+    position: absolute;
+    top: 35px;
+    left: 52px;
+    font-size: 6rem;
+    color: rgba(0, 255, 255, 0.5); /* Ciano */
+    z-index: -1;
+}
+
+/* Efeito de cintilação para simular luz instável */
+@keyframes flicker {
+    0% { opacity: 1; }
+    3% { opacity: 0.8; }
+    6% { opacity: 1; }
+    9% { opacity: 0.9; }
+    12% { opacity: 1; }
+    30% { opacity: 1; }
+    33% { opacity: 0.7; }
+    36% { opacity: 1; }
+    75% { opacity: 1; }
+    78% { opacity: 0.8; }
+    81% { opacity: 1; }
+    100% { opacity: 1; }
+}
+
+.titulo h1 {
+    animation: flicker 8s infinite;
+}
