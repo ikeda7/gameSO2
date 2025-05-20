@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
         
         // Redireciona para a página do jogo após uma pequena animação
         setTimeout(function() {
-            window.location.href = 'game.html';
+            window.location.href = 'introduction.html';
         }, 800);
     });
     

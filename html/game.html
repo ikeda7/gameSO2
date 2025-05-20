@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Questões</title>
+
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="Teste suas habilidades de sobrevivência neste jogo pós-apocalíptico!" />
+    <meta property="og:title" content="Sobreviventes do Bunker - O Jogo" />
+    <meta property="og:description" content="Escolha o especialista certo para cada desafio e sobreviva!" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+
+    <!-- Link para a fonte "Special Elite" -->
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+    
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/game.css" />
+    
+    <!-- Preload da imagem de fundo para carregamento mais rápido -->
+    <link rel="preload" href="../img/gamebg.png" as="image" />
+  </head>
+  <body>
+    <!-- Efeito de ruído de fundo -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Container principal -->
+    <div class="game-container">
+      <!-- Cabeçalho com progresso -->
+      <div class="game-header">
+        <div class="progress-container">
+          <div class="progress-text">Questão <span id="current-question">1</span> de <span id="total-questions">40</span></div>
+          <div class="progress-bar">
+            <div class="progress-fill" id="progress-fill"></div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Área da situação/problema -->
+      <div class="situation-container">
+        <h2>Situação do Bunker</h2>
+        <div id="situation-text" class="situation-text">
+          <!-- Texto da situação será inserido via JavaScript -->
+          <p>Carregando situação...</p>
+        </div>
+      </div>
+      
+      <!-- Fase 1: Seleção de especialista -->
+      <div id="character-selection" class="game-phase">
+        <h3>Escolha o especialista mais adequado para resolver este problema:</h3>
+        <div class="characters-grid">
+          <!-- Os personagens serão inseridos via JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Fase 2: Seleção da solução -->
+      <div id="solution-selection" class="game-phase" style="display: none;">
+        <h3>Agora escolha a melhor solução para o problema:</h3>
+        <div class="solutions-list">
+          <!-- As alternativas serão inseridas via JavaScript -->
+        </div>
+      </div>
+      
+      <!-- Área de feedback -->
+      <div id="feedback-container" class="feedback-container" style="display: none;">
+        <div class="feedback-content">
+          <h3 id="feedback-title">Feedback</h3>
+          <p id="feedback-text">Texto de feedback aparecerá aqui.</p>
+          <button id="feedback-button">Continuar</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Áudio de fundo (opcional) -->
+    <audio id="background-audio" loop>
+      <source src="../audio/game-ambient.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Scripts JS -->
+    <script src="../javascript/questions.js"></script>
+    <script src="../javascript/game.js"></script>
+  </body>
+</html>

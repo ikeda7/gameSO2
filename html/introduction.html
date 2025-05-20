@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" href="../img/favicon.png" type="image/png"/>
+    <title>Introdução</title>
+
+    <!-- Meta tags para SEO e compartilhamento -->
+    <meta name="description" content="Conheça os especialistas que podem ajudar na sobrevivência do bunker pós-apocalíptico." />
+    <meta property="og:title" content="Sobreviventes do Bunker - Especialistas" />
+    <meta property="og:description" content="Conheça os especialistas que podem salvar nosso bunker!" />
+    
+    <!-- Favicon -->
+    <link rel="icon" href="../img/favicon.ico" type="image/x-icon" />
+
+    <!-- Link para a fonte "Special Elite" -->
+    <link href="https://fonts.googleapis.com/css2?family=Special+Elite&display=swap" rel="stylesheet" />
+    
+    <!-- Link para o CSS -->
+    <link rel="stylesheet" href="../css/style.css" />
+    <link rel="stylesheet" href="../css/introduction.css" />
+    
+    <!-- Preload da imagem de fundo para carregamento mais rápido -->
+    <link rel="preload" href="../img/introductionbg.png" as="image" />
+  </head>
+  <body>
+    <!-- Efeito de ruído de fundo -->
+    <div class="noise-overlay"></div>
+    
+    <!-- Container principal -->
+    <div class="main-container">
+      <div class="intro-header">
+        <h2>Conheça os Especialistas</h2>
+        <p>Estes são os últimos especialistas do bunker, cada um com habilidades únicas para enfrentar os desafios que surgirem. Escolha sabiamente quem designar para cada problema - a sobrevivência de todos depende disso!</p>
+      </div>
+      
+      <div class="characters-container">
+        <!-- Dr. Byte -->
+        <div class="character-card" data-character="drbyte">
+          <img src="../img/drbyte.png" alt="Dr. Byte" class="character-image">
+        </div>
+        
+        <!-- Eng. KERNEL -->
+        <div class="character-card" data-character="engkernel">
+          <img src="../img/engkernel.png" alt="Eng. KERNEL" class="character-image">
+        </div>
+        
+        <!-- Capitã Sync -->
+        <div class="character-card" data-character="capitasync">
+          <img src="../img/capitasync.png" alt="Capitã Sync" class="character-image">
+        </div>
+        
+        <!-- ZeroCall -->
+        <div class="character-card" data-character="zerocall">
+          <img src="../img/zerocall.png" alt="ZeroCall" class="character-image">
+        </div>
+        
+        <!-- AnaCódex -->
+        <div class="character-card" data-character="anacodex">
+          <img src="../img/anacodex.png" alt="AnaCódex" class="character-image">
+        </div>
+      </div>
+      
+      <div class="continue-button">
+        <button id="btn-continue">Continuar para o Jogo</button>
+      </div>
+    </div>
+
+    <!-- Modal para detalhes do personagem -->
+    <div class="character-modal" id="character-modal">
+      <div class="character-modal-content">
+        <div class="modal-image-container">
+          <img id="modal-character-image" src="" alt="" class="modal-character-image">
+        </div>
+        <div class="modal-details">
+          <h2 class="modal-character-name" id="modal-character-name"></h2>
+          <h3 class="modal-character-title" id="modal-character-title"></h3>
+          
+          <div class="character-info">
+            <span class="info-label">Idade:</span>
+            <p class="info-text" id="character-age"></p>
+          </div>
+          <div class="character-info">
+            <span class="info-label">Especialidade:</span>
+            <p class="info-text" id="character-specialty"></p>
+          </div>
+        </div>
+        <span class="close-modal" id="close-modal">✕</span>
+      </div>
+    </div>
+
+    <!-- Áudio de fundo (opcional) -->
+    <audio id="background-audio" loop>
+      <source src="../audio/ambient-background.mp3" type="audio/mpeg">
+    </audio>
+
+    <!-- Script JS -->
+    <script src="../javascript/introduction.js"></script>
+  </body>
+</html>
